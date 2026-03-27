@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { 
   SiReact, SiFlutter, SiHtml5, SiCss, SiJavascript, SiNextdotjs, 
   SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiFigma, SiFirebase
@@ -60,7 +60,7 @@ const skillCategories = [
 ];
 
 export default function Skills() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -71,30 +71,16 @@ export default function Skills() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.6, y: 30 },
     visible: { 
       opacity: 1, 
       scale: 1, 
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const, // ✅ Fixed
         stiffness: 100,
         damping: 12
-      }
-    }
-  };
-
-  const pulseVariants = {
-    pulse: {
-      boxShadow: [
-        "0 0 0 0 rgba(139, 92, 246, 0.4)",
-        "0 0 0 10px rgba(139, 92, 246, 0)"
-      ],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeOut"
       }
     }
   };
@@ -142,7 +128,7 @@ export default function Skills() {
                     key={index}
                     variants={itemVariants}
                     animate={{ 
-                      y: [-4, 4, -4],
+                      y: [-4, 4, -4]
                     }}
                     transition={{
                       duration: 2.5 + index * 0.15,
@@ -166,11 +152,10 @@ export default function Skills() {
                       }}
                     ></div>
 
-                    {/* Animated Icon with Glow */}
+                    {/* Animated Icon */}
                     <motion.div 
                       className="text-slate-400 group-hover:text-violet-300 transition-colors relative z-10 text-sm"
                       whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6 }}
                       animate={{
                         textShadow: [
                           "0 0 0px rgba(139, 92, 246, 0)",
