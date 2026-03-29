@@ -54,10 +54,10 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-4 border-l border-white/20 pl-6">
-            <Link href="https://github.com" target="_blank" className="text-slate-400 hover:text-white transition-colors">
+            <Link href="https://github.com/keerthuy" target="_blank" className="text-slate-400 hover:text-white transition-colors">
               <GithubIcon className="w-5 h-5" />
             </Link>
-            <Link href="https://linkedin.com" target="_blank" className="text-slate-400 hover:text-white transition-colors">
+            <Link href="https://www.linkedin.com/in/gopalakrishnar-keerththanan-a424a02a8/" target="_blank" className="text-slate-400 hover:text-white transition-colors">
               <LinkedinIcon className="w-5 h-5" />
             </Link>
           </div>
