@@ -91,10 +91,10 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-6 mt-12">
-            <Link href="https://github.com" target="_blank" className="text-slate-400 hover:text-white transition-colors">
+            <Link href="https://github.com/keerthuy?tab=overview&from=2026-03-01&to=2026-03-29" target="_blank" className="text-slate-400 hover:text-white transition-colors">
               <GithubIcon className="w-6 h-6" />
             </Link>
-            <Link href="https://linkedin.com" target="_blank" className="text-slate-400 hover:text-white transition-colors">
+            <Link href="https://www.linkedin.com/in/gopalakrishnar-keerththanan-a424a02a8/" target="_blank" className="text-slate-400 hover:text-white transition-colors">
               <LinkedinIcon className="w-6 h-6" />
             </Link>
           </div>

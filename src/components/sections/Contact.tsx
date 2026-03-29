@@ -86,7 +86,6 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-1">Phone</h4>
-                <p className="text-slate-400 text-sm mb-2">Available during working hours</p>
                 <a href="tel:0726793218" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
                   0726793218
                 </a>
@@ -127,7 +126,6 @@ export default function Contact() {
                     name="from_name"
                     required
                     className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors placeholder:text-slate-600"
-                    placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-2">
@@ -138,7 +136,6 @@ export default function Contact() {
                     name="from_email"
                     required
                     className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-colors placeholder:text-slate-600"
-                    placeholder="john@example.com"
                   />
                 </div>
               </div>
