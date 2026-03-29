@@ -99,7 +99,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-1">Location</h4>
-                <p className="text-slate-400 text-sm mb-2">Available for remote work</p>
+                <p className="text-slate-400 text-sm mb-2">Available </p>
                 <span className="text-fuchsia-400 font-medium">
                   Jaffna, Sri Lanka
                 </span>
