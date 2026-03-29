@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
         
         <p className="text-slate-400 text-sm flex items-center gap-2">
-          Designed & Built with <Heart className="w-4 h-4 text-rose-500 animate-pulse" /> © {currentYear}
+          © 2026 Keerththanan. All rights reserved.
         </p>
       </div>
     </footer>
