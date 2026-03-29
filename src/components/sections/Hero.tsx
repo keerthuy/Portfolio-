@@ -6,6 +6,24 @@ import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
+  // Animated heading: split into lines so we can force a break and animate letters
+  const animatedLines = ['Complete', 'Product', 'Experience'];
+
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.03,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const letterVariants = {
+    initial: { opacity: 0, y: 18, rotateX: -12, scale: 0.98 },
+    animate: { opacity: 1, y: 0, rotateX: 0, scale: 1 },
+  };
+
   return (
     <section className="min-h-screen relative flex items-center pt-20 overflow-hidden">
 
@@ -48,9 +66,34 @@ export default function Hero() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
           >
             Design + Development = <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-500 to-fuchsia-400">
-              Complete Product Experience
-            </span>
+            <motion.span
+              variants={containerVariants}
+              initial="initial"
+              animate="animate"
+              whileHover={{ scale: 1.02 }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-500 to-fuchsia-400 inline-block"
+            >
+              {animatedLines.map((line, lineIndex) => {
+                const offset = animatedLines.slice(0, lineIndex).join('').length;
+                return (
+                  <span key={lineIndex} className={`block leading-none ${lineIndex > 0 ? '-mt-2' : ''}`}>
+                    {line.split('').map((letter, i) => {
+                      const index = offset + i;
+                      return (
+                        <motion.span
+                          key={index}
+                          variants={letterVariants}
+                          className="inline-block"
+                          transition={{ type: 'spring', damping: 12, stiffness: 120, duration: 0.45, delay: index * 0.03 }}
+                        >
+                          {letter === ' ' ? '\u00A0' : letter}
+                        </motion.span>
+                      );
+                    })}
+                  </span>
+                );
+              })}
+            </motion.span>
           </motion.h1>
 
           {/* Description */}
@@ -119,8 +162,8 @@ export default function Hero() {
 
               </div>
             </div>
-
-            {/* Badge
+{/* 
+            Badge
             <div className="absolute -bottom-4 -right-4 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm text-white shadow-lg">
               🚀 Full Stack Dev
             </div> */}
