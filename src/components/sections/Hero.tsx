@@ -37,25 +37,14 @@ export default function Hero() {
         {/* LEFT SIDE - TEXT */}
         <div className="text-center md:text-left">
 
-          {/* 🔥 Animated Role Text */}
+          {/* 🔥 Introduction */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-violet-400 uppercase text-sm mb-4 tracking-wider"
+            className="text-violet-400 font-medium mb-4 tracking-wider"
           >
-            <TypeAnimation
-              sequence={[
-                'Full Stack Developer',
-                1500,
-                'Mobile App Developer',
-                1500,
-                'UI/UX Designer',
-                1500,
-              ]}
-              speed={50}
-              repeat={Infinity}
-            />
+
           </motion.div>
 
           {/* Heading */}
@@ -63,38 +52,36 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
           >
-            Design + Development = <br />
-            <motion.span
-              variants={containerVariants}
-              initial="initial"
-              animate="animate"
-              whileHover={{ scale: 1.02 }}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-500 to-fuchsia-400 inline-block"
-            >
-              {animatedLines.map((line, lineIndex) => {
-                const offset = animatedLines.slice(0, lineIndex).join('').length;
-                return (
-                  <span key={lineIndex} className={`block leading-none ${lineIndex > 0 ? '-mt-2' : ''}`}>
-                    {line.split('').map((letter, i) => {
-                      const index = offset + i;
-                      return (
-                        <motion.span
-                          key={index}
-                          variants={letterVariants}
-                          className="inline-block"
-                          transition={{ type: 'spring', damping: 12, stiffness: 120, duration: 0.45, delay: index * 0.03 }}
-                        >
-                          {letter === ' ' ? '\u00A0' : letter}
-                        </motion.span>
-                      );
-                    })}
-                  </span>
-                );
-              })}
-            </motion.span>
+            Gopalakrishnar <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-500 to-fuchsia-400">
+              Keerththanan.
+            </span>
           </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-2xl md:text-3xl font-semibold mb-6 text-slate-300 h-[60px]"
+          >
+            I am a{' '}
+            <span className="text-violet-400">
+              <TypeAnimation
+                sequence={[
+                  'Full Stack Developer',
+                  1500,
+                  'Mobile App Developer',
+                  1500,
+                  'UI/UX Designer',
+                  1500,
+                ]}
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
+          </motion.div>
 
           {/* Description */}
           <motion.p
@@ -162,7 +149,7 @@ export default function Hero() {
 
               </div>
             </div>
-{/* 
+            {/* 
             Badge
             <div className="absolute -bottom-4 -right-4 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm text-white shadow-lg">
               🚀 Full Stack Dev
