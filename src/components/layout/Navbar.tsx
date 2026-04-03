@@ -32,7 +32,15 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-heading font-bold text-white z-50 flex items-center gap-2">
+        <Link 
+          href="#home" 
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setMobileMenuOpen(false);
+          }}
+          className="text-2xl font-heading font-bold text-white z-50 relative flex items-center gap-2"
+        >
           <span className="text-violet-500">&lt;</span>
           Developer
           <span className="text-violet-500">/&gt;</span>
@@ -65,7 +73,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white z-50"
+          className="md:hidden text-white z-50 relative"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
