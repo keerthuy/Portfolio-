@@ -25,10 +25,26 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
+        mobileMenuOpen
+          ? 'bg-slate-950 border-b border-white/10 py-4' 
+          : isScrolled 
+            ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/10 py-4' 
+            : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -81,7 +97,7 @@ export default function Navbar() {
 
         {/* Mobile Nav */}
         <div
-          className={`fixed inset-0 bg-slate-950/95 backdrop-blur-lg flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
+          className={`fixed inset-0 bg-slate-950 backdrop-blur-none flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
             mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
